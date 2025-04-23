@@ -10,6 +10,12 @@ sap.ui.define([
 
     return BaseController.extend("com.mining.miningdetailsapp.controller.MiningDetails", {
         onInit() {
+            let oRouter = this.getOwnerComponent().getRouter();
+            let oRoute = oRouter.getRoute("RouteMiningDetails");
+            oRoute.attachPatternMatched(this._onPatternMatched, this);
+            //this._getData();
+        },
+        _onPatternMatched(){
             this._getData();
         },
         
@@ -38,11 +44,15 @@ sap.ui.define([
 
             let oModel = this.getModel();
             let entity = `/miningSet(LocationId='${key1}',MineralType='${key2_new}',DrillDate='${key3_new}')`;
+        
             oModel.remove(entity, {
                 success: (resp) => {
                     MessageBox.success("Record Deleted Successfully", {
                         onClose:function(){
-                            this.onInit()
+                            // var oRouter=this.getRouter()
+            
+                            // oRouter.navTo("RouteMiningDetails",{},true)
+                            this._getData()
                         }.bind(this)
                     });
                 },
