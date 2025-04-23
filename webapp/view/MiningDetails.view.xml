@@ -1,0 +1,81 @@
+<mvc:View controllerName="com.mining.miningdetailsapp.controller.MiningDetails"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page id="miningDetailsPage" title="Mining Details">
+    <subHeader>
+            <OverflowToolbar>
+                <SearchField search="onSearch" liveChange="onSearch"/>
+            </OverflowToolbar>
+    </subHeader>
+
+    <Table id="miningDetailsTable" items="{MiningDetail>/}" mode="SingleSelectMaster" selectionChange="onRowSelection">
+        <columns>
+           <Column>
+            <Text text="{i18n>LocationId}"></Text>
+           </Column>
+
+           <Column >
+            <Text text="{i18n>LocationDesc}"></Text>
+           </Column>
+ 
+           <Column >
+            <Text text="{i18n>MiningResource}"></Text>
+           </Column>
+ 
+           <Column >
+            <Text text="{i18n>MineralReport}"></Text>
+           </Column>
+
+           <Column >
+            <Text text="{i18n>DrillCount}"></Text>
+           </Column>
+
+           <Column >
+            <Text text="{i18n>TotalCost}"></Text>
+           </Column>
+
+           <Column >
+            <Text text="{i18n>Currency}"></Text>
+           </Column>
+
+           <Column >
+            <Text text="{i18n>MineralType}"></Text>
+           </Column>
+
+           <Column >
+            <Text text="{i18n>DrillDate}"></Text>
+           </Column>
+            
+		   <Column >
+            <Text text="action"></Text>
+           </Column>
+        </columns>
+
+        <ColumnListItem >
+        <cells>
+        <Text text="{MiningDetail>LocationId}"></Text>
+        <Text text="{MiningDetail>LocationDesc}"></Text>
+        <Text text="{MiningDetail>MiningResource}"></Text>
+        <Text text="{MiningDetail>MineralReport}"></Text>
+        <Text text="{MiningDetail>DrillCount}"></Text>
+        <Text text="{MiningDetail>TotalCost}"></Text>
+        <Text text="{MiningDetail>Currency}"></Text>
+        <Text text="{MiningDetail>MineralType}"></Text>
+        <Text text="{MiningDetail>DrillDate}"></Text>
+
+        
+		 <Button icon="sap-icon://delete" press="onDelete"></Button>
+        </cells>
+       
+        </ColumnListItem>
+
+    </Table>
+			<footer>
+			<OverflowToolbar>
+				<ToolbarSpacer/>
+				<Button text="Create" press="onCreate"/>
+				
+			</OverflowToolbar>
+		</footer>        
+    </Page>
+</mvc:View>

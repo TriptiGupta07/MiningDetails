@@ -1,0 +1,39 @@
+<mvc:View controllerName="com.mining.miningdetailsapp.controller.UpdateView"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m" xmlns:f="sap.ui.layout.form">
+    <Page id="idUpdate" title="Update View">
+    <content>
+        <f:SimpleForm editable="true">
+		    <Label text="IDs" required="true"></Label>
+            <Input id= "idLocid" value="{MiningDetail>LocationId}" width="180px"></Input>
+
+            <Label text="Location Description"></Label>
+            <Input id="idLocdes" value="{MiningDetail>LocationDesc}" width="180px"></Input>
+
+            <Label text="Mining Resource"></Label>
+            <Input id="idMiRes" value="{MiningDetail>MiningResource}" width="180px"></Input>
+
+            <Label text="Mineral Report"></Label>
+            <Input id="idMiRep" value="{MiningDetail>MineralReport}" width="180px"></Input>
+
+            <Label text="Drill Count" ></Label>
+            <Input id="idDC" value="{MiningDetail>DrillCount}" width="180px"></Input>
+
+            <Label text="Total Cost"></Label>
+            <Input id="idTotalC" value="{MiningDetail>TotalCost}" width="180px"></Input>
+
+            <Label text="Currency"></Label>
+            <Input id="idCur" value="{MiningDetail>Currency}" width="180px"></Input>
+
+            <Label text="Mineral Type" required="true"></Label>
+            <Input id="idType" value="{MiningDetail>MineralType}" width="180px"></Input>
+
+            <Label text="Drill Date" required="true"></Label>
+            <Input id="idDrillDat" value="{MiningDetail>DrillDate}" width="180px" type="Date"></Input>
+
+            <Button text="Submit" width="180px" press="onUpdate"></Button>
+  
+        </f:SimpleForm>
+    </content>
+	</Page>
+</mvc:View>    

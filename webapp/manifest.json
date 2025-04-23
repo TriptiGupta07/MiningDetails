@@ -1,0 +1,167 @@
+{
+  "_version": "1.65.0",
+  "sap.app": {
+    "id": "com.mining.miningdetailsapp",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.17.3",
+      "toolsId": "0a9fbb44-28fc-4620-b6eb-b700625040bf"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/sap/opu/odata/sap/ZTMINING_ODATA_SRV/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "localUri": "localService/mainService/metadata.xml",
+          "odataVersion": "2.0"
+        }
+      }
+    },
+    "crossNavigation": {
+      "inbounds": {
+        "Mining_Details-manage": {
+          "semanticObject": "Mining_Details",
+          "action": "manage",
+          "title": "{{Mining_Details-manage.flpTitle}}",
+          "signature": {
+            "parameters": {},
+            "additionalParameters": "allowed"
+          }
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.135.0",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "com.mining.miningdetailsapp.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {}
+      },
+      "MiningDetail":{
+        "type": "sap.ui.model.json.JSONModel"
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "controlAggregation": "pages",
+        "controlId": "app",
+        "transition": "slide",
+        "type": "View",
+        "viewType": "XML",
+        "path": "com.mining.miningdetailsapp.view",
+        "async": true,
+        "viewPath": "com.mining.miningdetailsapp.view"
+      },
+      "routes": [
+        {
+          "name": "RouteMiningDetails",
+          "pattern": ":?query:",
+          "target": [
+            "TargetMiningDetails"
+          ]
+        },
+        {
+          "name": "RouteCreateview",
+          "pattern": "create",
+          "target": [
+            "TargetCreateview"
+          ]
+        },
+        {
+          "name": "Routedetailview",
+          "pattern": "detail/{indexdetail}",
+          "target": [
+            "Targetdetailview"
+          ]  
+        },
+        {
+          "name": "RouteUpdateView",
+          "pattern": "update/{indexupdate}",
+          "target": [
+            "Targetupdateview"
+          ]
+        }
+      ],
+      "targets": {
+        "TargetMiningDetails": {
+          "id": "MiningDetails",
+          "name": "MiningDetails"
+        },
+        "TargetCreateview": {
+          "id": "createview",
+          "name": "CreateView"
+        },
+        "Targetdetailview": {
+          "id": "detailview",
+          "name": "DetailView"
+        },
+        "Targetupdateview": {
+          "id": "updateview",
+          "name": "UpdateView"
+        }
+      }
+    },
+    "rootView": {
+      "viewName": "com.mining.miningdetailsapp.view.App",
+      "type": "XML",
+      "id": "App",
+      "async": true
+    }
+  },
+  "sap.cloud": {
+    "public": true,
+    "service": "comminingminingdetailsapp"
+  }
+}
