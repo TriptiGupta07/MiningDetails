@@ -13,7 +13,7 @@ sap.ui.define([
             let oRouter = this.getOwnerComponent().getRouter();
             let oRoute = oRouter.getRoute("RouteMiningDetails");
             oRoute.attachPatternMatched(this._onPatternMatched, this);
-            //this._getData();
+            this._getData();
         },
         _onPatternMatched(){
             this._getData();
@@ -68,7 +68,8 @@ sap.ui.define([
             oModel.read(entity,{
                 success:(odata,resp)=>{
                     let JModel = this.getOwnerComponent().getModel("MiningDetail")
-                    JModel.setData(odata.results)
+                    JModel.setData(odata.results);
+                    this.setDefaultBindingMode(sap.ui.model.mode.Oneway)
                 },
                 error:(error)=>{
                     console.log(error)

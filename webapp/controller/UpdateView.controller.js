@@ -65,15 +65,16 @@ sap.ui.define([
             //let entity=`/BOOKING_DATASet(Carrid='${sCarId}',Connid='${sConId}',Fldate='${sFliDate}',Bookid='${sBooId}')`;
 
             //Method
-            let that = this 
-            oModel.update(entity,payload,{
-            success:function(){
-                MessageBox.success("Record updated successfully", {
-                    onClose:function(){
-                        var oRouter=that.getRouter()
             
-            oRouter.navTo("RouteMiningDetails")
-                    }.bind(that)
+            oModel.update(entity,payload,{
+            success:(resp)=>{
+                MessageBox.success("Record updated successfully", {
+                    onClose:()=>{
+                        var oRouter=this.getRouter()
+            
+                    oRouter.navTo("RouteMiningDetails")
+                   
+                    }
                 })
                 
             },

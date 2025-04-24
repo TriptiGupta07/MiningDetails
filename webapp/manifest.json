@@ -82,7 +82,10 @@
         "settings": {}
       },
       "MiningDetail":{
-        "type": "sap.ui.model.json.JSONModel"
+        "type": "sap.ui.model.json.JSONModel",
+        "settings": {
+          "defaultBindingMode": "OneWay"
+        }
       }
     },
     "resources": {

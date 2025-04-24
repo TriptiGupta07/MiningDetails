@@ -18,13 +18,11 @@ sap.ui.define([
         },
 
         onToMining: function(){
-            this._clearFields();
             var oRouter=this.getOwnerComponent().getRouter()
             oRouter.navTo("RouteMiningDetails")
         },
-        setNone:function(){
-            var oRouter = this.getOwnerComponent().getRouter()
-            oRouter.navTo("RouteMiningDetails")
+        onSetNone:function(oEvent){
+            oEvent.getSource().setValueState("None")
         },
         _clearFields:function(){
             let oView = this.getView();
@@ -102,7 +100,7 @@ sap.ui.define([
                 success:function(){
                     MessageBox.success("Record created successfully", {
                         onClose:function(){
-                            this._clearFields();
+                            that._clearFields();
                             var oRouter=that.getRouter()
             
             oRouter.navTo("RouteMiningDetails",{},true)
